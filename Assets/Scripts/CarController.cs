@@ -17,7 +17,7 @@ public class CarController : MonoBehaviour
     private float brakeForce = 500f;
     private Rigidbody carRb;
 
-    public GameObject centerOfMass;
+    public GameObject centerOfMassOfCar;
 
     public AnimationCurve steeringCurve;
 
@@ -25,7 +25,7 @@ public class CarController : MonoBehaviour
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
-        carRb.centerOfMass = centerOfMass.transform.position;
+        carRb.centerOfMass = centerOfMassOfCar.transform.localPosition;
     }
 
     // Update is called once per frame

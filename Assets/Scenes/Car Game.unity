@@ -492,7 +492,7 @@ MonoBehaviour:
     frontRightWheel: {fileID: 1529407112}
     rearLeftWheel: {fileID: 1762576138}
     rearRightWheel: {fileID: 1248267054}
-  centerOfMass: {fileID: 1170847678}
+  centerOfMassOfCar: {fileID: 1170847678}
   steeringCurve:
     serializedVersion: 2
     m_Curve:
@@ -903,7 +903,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
@@ -995,7 +995,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
