@@ -20,10 +20,15 @@ public class CarController : MonoBehaviour
     public GameObject centerOfMassOfCar;
 
     public AnimationCurve steeringCurve;
+    public AudioSource runEngine;
+    public AudioSource idleEngine;
+    public bool engineRunning;
+    private CarSound reference;
 
     // Start is called before the first frame update
     void Start()
     {
+        reference = GameObject.Find("CarMovingSound").GetComponent<CarSound>();
         carRb = GetComponent<Rigidbody>();
         carRb.centerOfMass = centerOfMassOfCar.transform.localPosition;
     }
@@ -44,6 +49,15 @@ public class CarController : MonoBehaviour
 
     void AddMotorForce()
     {
+        if (Input.GetKey(KeyCode.W))
+        {
+            engineRunning = true;
+        }
+        else
+        {
+            engineRunning = false;
+        }
+
         colliders.backLeftWheelCollider.motorTorque = motorForce * forwardInput;
         colliders.backRightWheelCollider.motorTorque = motorForce * forwardInput;
     }
@@ -68,6 +82,7 @@ public class CarController : MonoBehaviour
             colliders.frontRightWheelCollider.brakeTorque = brakeForce;
             colliders.backLeftWheelCollider.brakeTorque = brakeForce;
             colliders.backRightWheelCollider.brakeTorque = brakeForce;
+            reference.runAudio.pitch -= 0.01f;
         }
         else
         {
